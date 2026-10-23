@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>گواهی تایید تحصیلی دوره متوسطه</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Tahoma, "Segoe UI", sans-serif;
+      background: #eef2f7;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 40px 16px;
+      color: #1f2937;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 760px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.08);
+      overflow: hidden;
+    }
+
+    .card-header {
+      background: linear-gradient(135deg, #1e3a8a, #2563eb);
+      color: #fff;
+      padding: 18px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand .emblem {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: #fff;
+      border: 2px solid rgba(255,255,255,.6);
+      object-fit: contain;
+      padding: 3px;
+      flex-shrink: 0;
+    }
+
+    .brand h1 {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .brand .sub {
+      font-size: 11px;
+      opacity: .85;
+      margin-top: 2px;
+    }
+
+    .doc-meta {
+      text-align: left;
+      font-size: 11px;
+      line-height: 1.8;
+      opacity: .95;
+    }
+
+    .doc-meta span { display: block; }
+    .doc-meta b { font-weight: 700; }
+
+    .demo-strip {
+      background: #fef3c7;
+      color: #92400e;
+      text-align: center;
+      font-size: 12px;
+      padding: 8px;
+      border-bottom: 1px solid #fde68a;
+      font-weight: 600;
+    }
+
+    .doc-title {
+      text-align: center;
+      padding: 22px 28px 6px;
+    }
+
+    .doc-title h2 {
+      font-size: 19px;
+      font-weight: 800;
+      color: #1e3a8a;
+      letter-spacing: -.2px;
+    }
+
+    .doc-title p {
+      font-size: 11px;
+      color: #6b7280;
+      margin-top: 5px;
+    }
+
+    .body {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 24px;
+      padding: 20px 28px 28px;
+    }
+
+    .photo {
+      width: 150px;
+      height: 180px;
+      border-radius: 12px;
+      border: 3px solid #e5e7eb;
+      object-fit: cover;
+      background: #f3f4f6;
+    }
+
+    .photo-wrap { text-align: center; }
+
+    .photo-cap {
+      font-size: 10px;
+      color: #6b7280;
+      margin-top: 6px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px 20px;
+    }
+
+    .field {
+      border-bottom: 1px dashed #e5e7eb;
+      padding-bottom: 6px;
+    }
+
+    .field.full { grid-column: 1 / -1; }
+
+    .label {
+      font-size: 11px;
+      color: #6b7280;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .value {
+      font-size: 14px;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .value.ltr {
+      direction: ltr;
+      text-align: right;
+      font-family: "Courier New", monospace;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fef2f2;
+      color: #b91c1c;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 12px;
+    }
+
+    .status::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background: #dc2626;
+      border-radius: 50%;
+    }
+
+    .signature-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      padding: 0 28px 22px;
+      text-align: center;
+    }
+
+    .sig-box {
+      border: 1px dashed #cbd5e1;
+      border-radius: 10px;
+      padding: 14px 10px 12px;
+      font-size: 11px;
+      color: #6b7280;
+      min-height: 90px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .sig-box .sig-title {
+      font-weight: 700;
+      color: #374151;
+      font-size: 12px;
+    }
+
+    .sig-box .sig-line {
+      border-top: 1px solid #e5e7eb;
+      margin-top: 10px;
+      padding-top: 6px;
+      color: #9ca3af;
+    }
+
+    .note {
+      border-top: 1px solid #e5e7eb;
+      padding: 12px 28px;
+      text-align: center;
+      font-size: 11px;
+      color: #92400e;
+      background: #fffbeb;
+      line-height: 1.9;
+    }
+
+    .verify-strip {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 10px 28px;
+      font-size: 10px;
+      color: #475569;
+      background: #f8fafc;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .verify-strip code {
+      font-family: "Courier New", monospace;
+      direction: ltr;
+      background: #eef2f7;
+      padding: 2px 8px;
+      border-radius: 6px;
+      color: #1e3a8a;
+      font-weight: 700;
+    }
+
+    @media (max-width: 560px) {
+      .body { grid-template-columns: 1fr; }
+      .photo-wrap { display: flex; flex-direction: column; align-items: center; }
+      .info-grid { grid-template-columns: 1fr; }
+      .signature-row { grid-template-columns: 1fr; }
+      .doc-meta { text-align: right; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+
+    <div class="card-header">
+      <div class="brand">
+        <img class="emblem"
+             src="https://cdn.imgurl.ir/uploads/i814847_images-1.png"
+             alt="نشان وزارت آموزش و پرورش">
+        <div>
+          <h1>جمهوری اسلامی ایران — وزارت آموزش و پرورش</h1>
+          <div class="sub">سامانه رسمی استعلام و تایید تحصیلی (نسخه ۱.۱)</div>
+        </div>
+      </div>
+      <div class="doc-meta">
+        <span>شماره سند: <b>۱۴۰۳/۲۸۳۳/م</b></span>
+        <span>تاریخ صدور: <b>۱۴۰۳</b></span>
+      </div>
+    </div>
+
+    <div class="demo-strip">
+      تایید تحصیلی آنلاین — این سند به صورت برخط از سامانه رسمی صادر شده است
+    </div>
+
+    <div class="doc-title">
+      <h2>گواهی تایید تحصیلی دوره متوسطه</h2>
+      <p>این گواهی بر اساس اطلاعات ثبت‌شده در سامانه یکپارچه مدارس صادر گردیده است.</p>
+    </div>
+
+    <div class="body">
+      <div class="photo-wrap">
+        <img class="photo"
+             src="https://uploadkon.ir/uploads/fbb223_26IMG-20261021-WA0134.jpg"
+             alt="تصویر متقاضی">
+        <div class="photo-cap">تصویر دارنده گواهی</div>
+      </div>
+
+      <div class="info-grid">
+        <div class="field full">
+          <span class="label">نام و نام خانوادگی</span>
+          <span class="value">الهه صمیمی</span>
+        </div>
+
+        <div class="field">
+          <span class="label">کد ملی</span>
+          <span class="value ltr">۳۲۵۷۳۰۴۷۲۲</span>
+        </div>
+
+        <div class="field">
+          <span class="label">مقطع تحصیلی</span>
+          <span class="value">دوره متوسطه (دیپلم)</span>
+        </div>
+
+        <div class="field">
+          <span class="label">رشته تحصیلی</span>
+          <span class="value">علوم تجربی</span>
+        </div>
+
+        <div class="field">
+          <span class="label">معدل کل</span>
+          <span class="value">۱۸/۷۵</span>
+        </div>
+
+        <div class="field full">
+          <span class="label">مدرسه / دبیرستان</span>
+          <span class="value">دبیرستان طاهرین</span>
+        </div>
+
+        <div class="field full">
+          <span class="label">مرجع صادرکننده</span>
+          <span class="value">آموزش و پرورش استان کرمانشاه</span>
+        </div>
+
+        <div class="field">
+          <span class="label">سال صدور / اعمال</span>
+          <span class="value">۱۴۰۳</span>
+        </div>
+
+        <div class="field">
+          <span class="label">وضعیت گواهی</span>
+          <span class="value">
+            <span class="status">عدم پرداخت شهریه آموزشی</span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="signature-row">
+      <div class="sig-box">
+        <div class="sig-title">مهر و امضای مرجع صادرکننده</div>
+        <div class="sig-line">آموزش و پرورش استان کرمانشاه</div>
+      </div>
+      <div class="sig-box">
+        <div class="sig-title">تایید سامانه یکپارچه مدارس</div>
+        <div class="sig-line">امضای الکترونیکی — معتبر</div>
+      </div>
+    </div>
+
+    <div class="note">
+      این گواهی صرفاً جهت اطلاع و استعلام صادر شده و هرگونه استفاده غیرمجاز از آن پیگرد قانونی دارد.
+      <br>
+      سامانه رسمی آموزش و پرورش — نسخه ۱.۱
+    </div>
+
+    <div class="verify-strip">
+      <span>کد رهگیری سند:</span>
+      <code>IR-MOE-1403-2833-M</code>
+      <span>قابلیت استعلام: سامانه یکپارچه مدارس</span>
+    </div>
+
+  </div>
+
+</body>
+</html>
